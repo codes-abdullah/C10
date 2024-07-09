@@ -1,0 +1,18 @@
+clear
+echo "####################################"
+echo `date`
+echo ""
+echo ""
+start_millis=`date +%s%N | cut -b1-13`
+make all
+end_millis=`date +%s%N | cut -b1-13`
+total_millis=$(( $end_millis-$start_millis ))
+echo ""
+echo ""
+echo "Build completed in ${total_millis} millis"
+echo "####################################"
+read -r -p "Run binary /home/abod/junk/cpp/C10/build/C10?? [y/N] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY]) || $response == '' ]]
+then
+clear && /home/abod/junk/cpp/C10/build/C10
+fi
