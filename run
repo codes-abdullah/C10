@@ -5,10 +5,17 @@ echo ""
 echo ""
 start_millis=`date +%s%N | cut -b1-13`
 make all
+exit_code=$?
 end_millis=`date +%s%N | cut -b1-13`
 total_millis=$(( $end_millis-$start_millis ))
 echo ""
 echo ""
+if [[ $exit_code -ne 0 ]]
+then
+echo "Error occured, exist code: $exit_code"
+echo "####################################"
+exit 
+fi
 echo "Build completed in ${total_millis} millis"
 echo "####################################"
 read -r -p "Run binary /home/abod/junk/cpp/C10/build/C10?? [y/N] " response
