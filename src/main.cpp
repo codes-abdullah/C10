@@ -1,4 +1,5 @@
 #include <iostream>
+#include "b.h"
 struct P
 {
 	static int x, y;
